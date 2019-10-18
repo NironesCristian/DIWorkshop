@@ -4,9 +4,6 @@ using DIWorkshop.Homework.WebApi.Controllers;
 using DIWorkshop.Interfaces;
 using DIWorkshop.Managers;
 using DIWorkshop.Persistence;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web.Http;
 
 namespace DIWorkshop.Homework.WebApi
@@ -16,15 +13,7 @@ namespace DIWorkshop.Homework.WebApi
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
-            var builder = new ContainerBuilder();
-
-            builder.RegisterType<DbContext>().SingleInstance();
-            builder.RegisterType<DriverController>();
-            builder.RegisterType<CarRepository>().As<ICarRepository>();
-            builder.RegisterType<DriverRepository>().As<IDriverRepository>();
-            builder.RegisterType<DriverManager>().As<IDriverManager>();
-
-            var container = builder.Build();
+            var container = ContainerConfig.Configure();
             var resolver = new AutofacWebApiDependencyResolver(container);
             config.DependencyResolver = resolver;
 

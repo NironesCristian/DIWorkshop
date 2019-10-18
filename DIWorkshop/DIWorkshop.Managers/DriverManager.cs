@@ -1,6 +1,5 @@
 ﻿using DIWorkshop.Entities;
 using DIWorkshop.Interfaces;
-using DIWorkshop.Persistence;
 
 namespace DIWorkshop.Managers
 {
