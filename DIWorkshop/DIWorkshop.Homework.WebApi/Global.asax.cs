@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Routing;
+using DIWorkshop.Homework.WebApi.Controllers;
+using Autofac;
 
 namespace DIWorkshop.Homework.WebApi
 {
@@ -11,7 +13,8 @@ namespace DIWorkshop.Homework.WebApi
     {
         protected void Application_Start()
         {
-            GlobalConfiguration.Configure(WebApiConfig.Register);
+                GlobalConfiguration.Configure(WebApiConfig.Register);
+
         }
     }
 }

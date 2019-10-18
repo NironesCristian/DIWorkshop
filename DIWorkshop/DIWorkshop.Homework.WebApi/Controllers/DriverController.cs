@@ -1,16 +1,17 @@
 ﻿using DIWorkshop.Managers;
 using DIWorkshop.Persistence;
 using System.Web.Http;
+using Autofac;
 
 namespace DIWorkshop.Homework.WebApi.Controllers
 {
 	public class DriverController : ApiController
     {
-		private readonly DriverManager _driverManager;
+		private readonly IDriverManager _driverManager;
 
-		public DriverController()
+		public DriverController(IDriverManager driverManager)
 		{
-			_driverManager = new DriverManager();
+			_driverManager = driverManager;
 		}
 
 		[Route("driver/{id}")]
@@ -18,5 +19,11 @@ namespace DIWorkshop.Homework.WebApi.Controllers
 		{
 			return Ok(_driverManager.GetDriver(id));
 		}
+
+        [Route("car/{id}")]
+        public IHttpActionResult GetDriverByCarId(int id)
+        {
+            return Ok(_driverManager.GetDriverByCarId(id));
+        }
     }
 }

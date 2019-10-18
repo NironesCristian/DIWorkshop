@@ -3,18 +3,27 @@ using DIWorkshop.Persistence;
 
 namespace DIWorkshop.Managers
 {
-	public class DriverManager
-	{
-		private readonly DriverRepository _driverRepository;
+    public class DriverManager : IDriverManager
+    {
+        private readonly IDriverRepository _driverRepository;
+        private readonly ICarRepository _carRepository;
 
-		public DriverManager()
-		{
-			_driverRepository = new DriverRepository(new DbContext());
-		}
+        public DriverManager(IDriverRepository driverRepository,ICarRepository carRepository)
+        {
+            _driverRepository = driverRepository;
+            _carRepository = carRepository;
+        }
 
-		public Driver GetDriver(int id)
-		{
-			return _driverRepository.GetDriver(id);
-		}
-	}
+        public Driver GetDriver(int id)
+        {
+            return _driverRepository.GetDriver(id);
+        }
+
+        public Driver GetDriverByCarId(int id)
+        {
+            Driver d = _driverRepository.GetDriver(id);
+            d.Car = _carRepository.GetCar(id);
+            return d;
+        }
+    }
 }
