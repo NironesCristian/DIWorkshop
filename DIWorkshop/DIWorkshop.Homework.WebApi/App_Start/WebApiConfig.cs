@@ -1,9 +1,4 @@
-﻿using Autofac;
-using Autofac.Integration.WebApi;
-using DIWorkshop.Homework.WebApi.Controllers;
-using DIWorkshop.Interfaces;
-using DIWorkshop.Managers;
-using DIWorkshop.Persistence;
+﻿using Autofac.Integration.WebApi;
 using System.Web.Http;
 
 namespace DIWorkshop.Homework.WebApi
