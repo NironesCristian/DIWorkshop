@@ -116,6 +116,10 @@
       <Project>{72ED3816-C2F7-442B-8F0F-AB6722D185FC}</Project>
       <Name>DIWorkshop.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DIWorkshop.Interfaces\DIWorkshop.Interfaces.csproj">
+      <Project>{AD71DF34-B1DF-4EAA-85B9-0DF8D464AF25}</Project>
+      <Name>DIWorkshop.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DIWorkshop.Managers\DIWorkshop.Managers.csproj">
       <Project>{D7348E74-D6D5-460C-A305-345D9B98BCD6}</Project>
       <Name>DIWorkshop.Managers</Name>

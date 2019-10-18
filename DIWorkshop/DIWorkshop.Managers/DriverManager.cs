@@ -6,14 +6,13 @@ namespace DIWorkshop.Managers
 {
     public class DriverManager : IDriverManager
     {
-        private readonly DriverRepository _driverRepository;
-        private readonly CarRepository _carRepository;
+        private readonly IDriverRepository _driverRepository;
+        private readonly ICarRepository _carRepository;
 
-        public DriverManager()
+        public DriverManager(IDriverRepository driverRepository, ICarRepository carRepository)
         {
-            var dbContext = new DbContext();
-            _driverRepository = new DriverRepository(dbContext);
-            _carRepository = new CarRepository(dbContext);
+            _driverRepository = driverRepository;
+            _carRepository = carRepository;
         }
 
         public Driver GetDriver(int id)

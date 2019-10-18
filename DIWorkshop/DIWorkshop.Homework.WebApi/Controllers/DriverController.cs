@@ -1,16 +1,15 @@
-﻿using DIWorkshop.Managers;
-using DIWorkshop.Persistence;
+﻿using DIWorkshop.Interfaces;
 using System.Web.Http;
 
 namespace DIWorkshop.Homework.WebApi.Controllers
 {
     public class DriverController : ApiController
     {
-        private readonly DriverManager _driverManager;
+        private readonly IDriverManager _driverManager;
 
-        public DriverController()
+        public DriverController(IDriverManager driverManager)
         {
-            _driverManager = new DriverManager();
+            _driverManager = driverManager;
         }
 
         [HttpGet]
