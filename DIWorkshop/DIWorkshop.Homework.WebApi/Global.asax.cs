@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Autofac;
+using DIWorkshop.Homework.WebApi.Controllers;
+using DIWorkshop.Managers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;

@@ -4,19 +4,29 @@ using System.Web.Http;
 
 namespace DIWorkshop.Homework.WebApi.Controllers
 {
-	public class DriverController : ApiController
+    public class DriverController : ApiController
     {
-		private readonly DriverManager _driverManager;
+        private readonly IDriverManager _driverManager;
 
-		public DriverController()
-		{
-			_driverManager = new DriverManager();
-		}
+        public DriverController(IDriverManager driverManager)
+        {
+            _driverManager = driverManager;
+        }
 
-		[Route("driver/{id}")]
-		public IHttpActionResult GetDriver(int id)
-		{
-			return Ok(_driverManager.GetDriver(id));
-		}
+        [Route("driver/{id}")]
+        public IHttpActionResult GetDriver(int id)
+        {
+            return Ok(_driverManager.GetDriver(id));
+        }
+
+        [HttpGet]
+        [Route("driver/{driverId}/car/{carId}")]
+        public IHttpActionResult AssignCarToDriver(int driverId, int carId)
+        {
+            return Ok(_driverManager.AssignCarToDriver(driverId, carId));
+            //return Ok(_driverManager.GetDriver(driverId));
+        }
+
+
     }
 }

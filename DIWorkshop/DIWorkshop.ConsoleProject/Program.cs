@@ -11,6 +11,7 @@ namespace DIWorkshop.ConsoleProject
 		static void Main(string[] args)
 		{
 
+            Console.ReadKey();
 		}
 	}
 }
