@@ -19,9 +19,9 @@ namespace DIWorkshop.Managers
             return _driverRepository.GetDriver(id);
         }
 
-        public Driver GetDriverByCarId(int id)
+        public Driver GetDriverByCarId(int id,int jd)
         {
-            Driver d = _driverRepository.GetDriver(id);
+            Driver d = _driverRepository.GetDriver(jd);
             d.Car = _carRepository.GetCar(id);
             return d;
         }

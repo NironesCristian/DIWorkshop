@@ -6,6 +6,6 @@ namespace DIWorkshop.Managers
     {
         Driver GetDriver(int id);
 
-        Driver GetDriverByCarId(int id);
+        Driver GetDriverByCarId(int id,int jd);
     }
 }
