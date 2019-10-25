@@ -14,7 +14,10 @@ namespace DIWorkshop.Persistence
 
         public Car GetCar(int id)
         {
-            return _dbContext.Cars.FirstOrDefault(x => x.Id == id);
+
+            if (_dbContext.Cars.FirstOrDefault(x => x.Id == id) == null)
+                return null;
+            else return _dbContext.Cars.FirstOrDefault(x => x.Id == id);
         }
     }
 }

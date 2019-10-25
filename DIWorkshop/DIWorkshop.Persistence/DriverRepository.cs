@@ -14,6 +14,9 @@ namespace DIWorkshop.Persistence
 
         public Driver GetDriver(int id)
         {
+            if (_dbContext.Drivers.FirstOrDefault(x => x.Id == id) == null)
+                return null;
+
             return _dbContext.Drivers.FirstOrDefault(x => x.Id == id);
         }
     }

@@ -20,10 +20,10 @@ namespace DIWorkshop.Homework.WebApi.Controllers
 			return Ok(_driverManager.GetDriver(id));
 		}
 
-        [Route("car/{id}/driver/{jd}")]
-        public IHttpActionResult GetDriverByCarId(int id,int jd)
+        [Route("car/{carId}/driver/{driverId}")]
+        public IHttpActionResult GetDriverByCarId(int carId,int driverId)
         {
-            return Ok(_driverManager.GetDriverByCarId(id,jd));
+            return Ok(_driverManager.GetDriverByCarId(carId,driverId));
         }
     }
 }

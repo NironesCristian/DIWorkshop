@@ -1,5 +1,6 @@
 ﻿using DIWorkshop.Entities;
 using DIWorkshop.Persistence;
+using System.Linq;
 
 namespace DIWorkshop.Managers
 {
@@ -19,11 +20,13 @@ namespace DIWorkshop.Managers
             return _driverRepository.GetDriver(id);
         }
 
-        public Driver GetDriverByCarId(int id,int jd)
+        public Driver GetDriverByCarId(int carId,int driverId)
         {
-            Driver d = _driverRepository.GetDriver(jd);
-            d.Car = _carRepository.GetCar(id);
-            return d;
+            Driver driver = _driverRepository.GetDriver(driverId);
+            if (driver == null)
+                return null;
+            driver.Car = _carRepository.GetCar(carId);
+            return driver;
         }
     }
 }
