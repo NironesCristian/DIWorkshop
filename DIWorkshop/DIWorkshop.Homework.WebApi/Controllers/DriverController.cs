@@ -24,8 +24,8 @@ namespace DIWorkshop.Homework.WebApi.Controllers
         public IHttpActionResult AssignCarToDriver(int driverId, int carId)
         {
             return Ok(_driverManager.AssignCarToDriver(driverId, carId));
-            //return Ok(_driverManager.GetDriver(driverId));
         }
+       
 
 
     }

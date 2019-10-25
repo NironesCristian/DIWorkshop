@@ -6,24 +6,37 @@ namespace DIWorkshop.Managers
     public class DriverManager : IDriverManager
     {
         private readonly IDriverRepository _driverRepository;
+        private readonly ICarRepository _carRepository;
 
         public DriverManager(IDriverRepository driverRepository)
         {
-            _driverRepository = driverRepository; /*new DriverRepository(new DbContext());*/
+            _driverRepository = driverRepository;
+        }
+        public DriverManager(IDriverRepository driverRepository, ICarRepository carRepository)
+        {
+            _driverRepository = driverRepository;
+            _carRepository = carRepository;
         }
 
-        public Driver GetDriver(int id)
+        public Driver GetDriver(int driverId)
         {
-            return _driverRepository.GetDriver(id);
+            return _driverRepository.GetDriver(driverId);
         }
+        public Car GetCar(int carId)
+        {
+            return _carRepository.GetCar(carId);
+        }
+
         public Driver GetDriverByCarId(int carId)
         {
             return _driverRepository.GetDriverByCarId(carId);
         }
         public Driver AssignCarToDriver(int driverId, int carId)
         {
-            _driverRepository.AssignCarToDriver(driverId, carId);
-            return GetDriver(driverId);
+            Driver driver = GetDriver(driverId);
+            if (driver == null) return null;
+            driver.Car = GetCar(carId);
+            return driver;
         }
     }
 }

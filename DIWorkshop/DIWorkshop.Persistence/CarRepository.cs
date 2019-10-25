@@ -12,9 +12,9 @@ namespace DIWorkshop.Persistence
             _dbContext = dbContext;
         }
 
-        public Car GetCar(int id)
+        public Car GetCar(int carId)
         {
-            return _dbContext.Cars.FirstOrDefault(x => x.Id == id);
+            return _dbContext.Cars.FirstOrDefault(x => x.Id == carId);
         }
     }
 }

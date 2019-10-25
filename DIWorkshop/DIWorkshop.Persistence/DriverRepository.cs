@@ -11,18 +11,13 @@ namespace DIWorkshop.Persistence
         {
             _dbContext = dbContext;
         }
-
-        public Driver GetDriver(int id)
+        public Driver GetDriver(int driverId)
         {
-            return _dbContext.Drivers.FirstOrDefault(x => x.Id == id);
+            return _dbContext.Drivers.FirstOrDefault(x => x.Id == driverId);
         }
         public Driver GetDriverByCarId(int carId)
         {
             return _dbContext.Drivers.FirstOrDefault(x => x.Car.Id == carId);
-        }
-        public void AssignCarToDriver(int driverId, int carId)
-        {
-            _dbContext.Drivers.FirstOrDefault(x => x.Id == driverId).Car = _dbContext.Cars.FirstOrDefault(c => c.Id == carId);
         }
     }
 }

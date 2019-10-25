@@ -2,10 +2,6 @@
 using DIWorkshop.Homework.WebApi.Controllers;
 using DIWorkshop.Managers;
 using DIWorkshop.Persistence;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace DIWorkshop.Homework.WebApi
 {
