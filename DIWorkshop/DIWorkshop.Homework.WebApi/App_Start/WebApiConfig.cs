@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Autofac.Integration.WebApi;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -10,6 +11,9 @@ namespace DIWorkshop.Homework.WebApi
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
+            var container = ContainerConfig.Configure();
+            var resolver = new AutofacWebApiDependencyResolver(container);
+            GlobalConfiguration.Configuration.DependencyResolver = resolver;
 
             // Web API routes
             config.MapHttpAttributeRoutes();
@@ -19,6 +23,8 @@ namespace DIWorkshop.Homework.WebApi
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+
         }
     }
 }

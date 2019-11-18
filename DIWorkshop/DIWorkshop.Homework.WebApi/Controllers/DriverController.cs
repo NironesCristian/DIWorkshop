@@ -6,17 +6,23 @@ namespace DIWorkshop.Homework.WebApi.Controllers
 {
 	public class DriverController : ApiController
     {
-		private readonly DriverManager _driverManager;
+		private readonly IDriverManager _driverManager;
 
-		public DriverController()
+		public DriverController(IDriverManager driver)
 		{
-			_driverManager = new DriverManager();
+			_driverManager = driver;
 		}
 
-		[Route("driver/{id}")]
-		public IHttpActionResult GetDriver(int id)
-		{
-			return Ok(_driverManager.GetDriver(id));
-		}
+        [Route("driver/{id}")]
+        public IHttpActionResult GetDriver(int id)
+        {
+            return Ok(_driverManager.GetDriver(id));
+        }
+
+        [Route("driver/{driverId}/car/{carId}")]
+        public IHttpActionResult GetDriverAndHisCar(int driverId, int carId)
+        {
+            return Ok(_driverManager.GetDriverAndHisCar(driverId, carId));
+        }
     }
 }
